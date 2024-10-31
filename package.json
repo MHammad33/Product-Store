@@ -1,17 +1,20 @@
 {
-  "name": "product-store",
-  "version": "1.0.0",
-  "description": "A project of MERN stack for learning purposes",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "mongoose": "^8.7.3"
-  }
+	"name": "product-store",
+	"version": "1.0.0",
+	"description": "A project of MERN stack for learning purposes",
+	"main": "index.js",
+	"scripts": {
+		"tsc": "tsc"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"dotenv": "^16.4.5",
+		"express": "^4.21.1",
+		"mongoose": "^8.7.3"
+	},
+	"devDependencies": {
+		"typescript": "^5.6.3"
+	}
 }
