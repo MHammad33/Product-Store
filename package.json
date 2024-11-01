@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"tsc": "tsc",
-		"start": "node build/index.js",
-		"dev": "ts-node-dev backend/index.ts",
+		"start": "node build/server.js",
+		"dev": "ts-node-dev backend/server.ts",
 		"lint": "eslint ."
 	},
 	"keywords": [],
