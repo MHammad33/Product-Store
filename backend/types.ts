@@ -1,5 +1,8 @@
 export interface Product {
+  id: string;
   name: string;
-  type: number;
+  price: number;
   image: string;
 }
+
+export type NewProduct = Omit<Product, "id">;
