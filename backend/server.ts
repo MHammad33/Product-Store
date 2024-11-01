@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDb } from "./config/db";
+import productRouter from "./routes/product.routes";
 
 dotenv.config();
 const app = express();
 
 // Routes
+app.use("/api/products", productRouter);
 
 const port = 3001;
 
