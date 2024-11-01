@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
+import productService from "../services/product.service";
 
-const createNewProduct = (_req: Request, res: Response) => {
+const createNewProduct = (req: Request, res: Response) => {
+  productService.addProduct();
   res.send("Create new Product");
 };
 
