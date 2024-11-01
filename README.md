@@ -6,3 +6,7 @@ A project of MERN stack for learning purposes
 
 - Added TypeScript
 - Added ESlint
+
+---
+
+Time Taken: 1 hour so far
