@@ -7,6 +7,9 @@ import productRouter from "./routes/product.routes";
 dotenv.config();
 const app = express();
 
+// Middlewares
+app.use(express.json());
+
 // Routes
 app.use("/api/products", productRouter);
 
