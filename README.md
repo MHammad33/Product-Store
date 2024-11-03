@@ -1,13 +1,17 @@
 # Product-Store
 
-A project of MERN stack for learning purposes
+A MERN stack project designed for learning and experimentation with modern web development tools and best practices.
 
-# My Features
+## Features
 
-- Added TypeScript
-  - Validating Requests
-- Added ESlint
+- **TypeScript Integration**
+  - Provides enhanced type safety across the stack
+  - Validates requests for more robust API interactions
+- **ESLint Configuration**
+  - Ensures code quality and consistency with custom linting rules
 
 ---
 
-Time Taken: 1 hour so far
+### Development Timeline
+
+- **Time Taken**: 1 hour (and counting)
