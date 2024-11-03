@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import { Product as ProductType } from "../types";
+
+export interface IProductDocument extends Omit<ProductType, "id">, Document {
+  _id: string;
+}
 
 const productSchema = new mongoose.Schema(
   {
@@ -20,6 +25,6 @@ const productSchema = new mongoose.Schema(
   },
 );
 
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model<IProductDocument>("Product", productSchema);
 
 export default Product;

@@ -1,10 +1,18 @@
 import Product from "../models/Product.model";
 import { Product as ProductType } from "../types";
 
-const addProduct = async (product: ProductType): ProductType => {
+const addProduct = async (product: ProductType): Promise<ProductType> => {
   const newProduct = new Product(product);
-  await newProduct.save();
-  return newProduct;
+  const savedProduct = await newProduct.save();
+
+  const transformedProduct: ProductType = {
+    id: savedProduct._id.toString(),
+    name: savedProduct.name,
+    price: savedProduct.price,
+    image: savedProduct.image,
+  };
+
+  return transformedProduct;
 };
 
 export default { addProduct };
