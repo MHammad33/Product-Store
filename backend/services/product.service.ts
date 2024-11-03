@@ -1,7 +1,7 @@
 import Product from "../models/Product.model";
-import { Product as ProductType } from "../types";
+import { NewProduct, Product as ProductType } from "../types";
 
-const addProduct = async (product: ProductType): Promise<ProductType> => {
+const addProduct = async (product: NewProduct): Promise<ProductType> => {
   const newProduct = new Product(product);
   const savedProduct = await newProduct.save();
 
