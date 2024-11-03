@@ -5,6 +5,7 @@ A project of MERN stack for learning purposes
 # My Features
 
 - Added TypeScript
+  - Validating Requests
 - Added ESlint
 
 ---
