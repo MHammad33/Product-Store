@@ -23,4 +23,28 @@ const getAll = async (): Promise<ProductType[]> => {
   return await Product.find({});
 };
 
-export default { add, removeById, getAll };
+const update = async (
+  productId: string,
+  dataToUpdate: Partial<ProductType>,
+): Promise<ProductType> => {
+  const updatedProduct = await Product.findByIdAndUpdate(
+    productId,
+    dataToUpdate,
+    { new: true },
+  );
+
+  if (!updatedProduct) {
+    throw new Error("Could not update Product");
+  }
+
+  const transformedProduct: ProductType = {
+    id: updatedProduct._id.toString(),
+    name: updatedProduct.name,
+    price: updatedProduct.price,
+    image: updatedProduct.image,
+  };
+
+  return transformedProduct;
+};
+
+export default { add, removeById, getAll, update };

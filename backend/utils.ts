@@ -1,4 +1,4 @@
-import { NewProduct } from "./types";
+import { NewProduct, Product } from "./types";
 
 export const toNewProductType = (product: unknown): NewProduct => {
   if (!product || typeof product !== "object") {
@@ -16,6 +16,30 @@ export const toNewProductType = (product: unknown): NewProduct => {
   }
 
   throw new Error("Incorrect data: some fields are missing");
+};
+
+export const toUpdateProductType = (product: unknown): Partial<Product> => {
+  if (!product || typeof product !== "object") {
+    throw new Error("Incorrect or missing data");
+  }
+
+  const productData = product as Record<string, unknown>;
+
+  const newProduct: Partial<Product> = {};
+
+  if ("name" in productData) {
+    newProduct.name = parseName(productData.name);
+  }
+
+  if ("price" in productData) {
+    newProduct.price = parsePrice(productData.price);
+  }
+
+  if ("image" in productData) {
+    newProduct.image = parseImage(productData.image);
+  }
+
+  return newProduct;
 };
 
 const parseName = (name: unknown): string => {
