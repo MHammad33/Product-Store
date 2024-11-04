@@ -19,4 +19,8 @@ const removeById = async (productId: string): Promise<void> => {
   await Product.findByIdAndDelete(productId);
 };
 
-export default { add, removeById };
+const getAll = async (): Promise<ProductType[]> => {
+  return await Product.find({});
+};
+
+export default { add, removeById, getAll };
