@@ -1,7 +1,7 @@
 import Product from "../models/Product.model";
 import { NewProduct, Product as ProductType } from "../types";
 
-const addProduct = async (product: NewProduct): Promise<ProductType> => {
+const add = async (product: NewProduct): Promise<ProductType> => {
   const newProduct = new Product(product);
   const savedProduct = await newProduct.save();
 
@@ -19,4 +19,4 @@ const removeById = async (productId: string): Promise<void> => {
   await Product.findByIdAndDelete(productId);
 };
 
-export default { addProduct, removeById };
+export default { add, removeById };
