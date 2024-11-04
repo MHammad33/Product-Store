@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use("/api/products", productRouter);
+app.use("/api/v1/products", productRouter);
 
 const port = 3001;
 
