@@ -8,6 +8,12 @@ const createNewProduct = async (req: Request, res: Response): Promise<void> => {
   res.json(addedProduct);
 };
 
+export const removeProduct = async (req: Request, res: Response) => {
+  const productId = req.params.id;
+  await productService.removeById(productId);
+  res.status(200).json({ success: true, message: "Product Deleted" });
+};
+
 export default {
   createNewProduct,
 };

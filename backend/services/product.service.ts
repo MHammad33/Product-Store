@@ -15,4 +15,8 @@ const addProduct = async (product: NewProduct): Promise<ProductType> => {
   return transformedProduct;
 };
 
-export default { addProduct };
+const removeById = async (productId: string): Promise<void> => {
+  await Product.findByIdAndDelete(productId);
+};
+
+export default { addProduct, removeById };
