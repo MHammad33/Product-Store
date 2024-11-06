@@ -9,9 +9,11 @@ A MERN stack project designed for learning and experimentation with modern web d
   - Validates requests for more robust API interactions
 - **ESLint Configuration**
   - Ensures code quality and consistency with custom linting rules
+- Used Chakra UI
 
 ---
 
 ### Development Timeline
 
-- **Time Taken**: 2.5 hours (and counting)
+- **Time Taken**: 3.5 hours (and counting)
+  (57:27)
