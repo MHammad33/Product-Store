@@ -1,32 +1,34 @@
 {
-	"name": "product-store",
-	"version": "1.0.0",
-	"description": "A project of MERN stack for learning purposes",
-	"main": "index.js",
-	"scripts": {
-		"tsc": "tsc",
-		"start": "node build/server.js",
-		"dev": "ts-node-dev backend/server.ts",
-		"lint": "eslint ."
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"dotenv": "^16.4.5",
-		"express": "^4.21.1",
-		"express-async-errors": "^3.1.1",
-		"mongoose": "^8.7.3"
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.13.0",
-		"@stylistic/eslint-plugin": "^2.10.0",
-		"@types/eslint__js": "^8.42.3",
-		"@types/express": "^5.0.0",
-		"eslint": "^9.13.0",
-		"prettier": "3.3.3",
-		"ts-node-dev": "^2.0.0",
-		"typescript": "^5.6.3",
-		"typescript-eslint": "^8.12.2"
-	}
+  "name": "product-store",
+  "version": "1.0.0",
+  "description": "A project of MERN stack for learning purposes",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node build/server.js",
+    "dev": "ts-node-dev backend/server.ts",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^8.7.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@playwright/test": "^1.48.2",
+    "@stylistic/eslint-plugin": "^2.10.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "eslint": "^9.13.0",
+    "prettier": "3.3.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
+  }
 }

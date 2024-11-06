@@ -10,10 +10,11 @@ A MERN stack project designed for learning and experimentation with modern web d
 - **ESLint Configuration**
   - Ensures code quality and consistency with custom linting rules
 - Used Chakra UI
+- Used Playwright for E2E testing
 
 ---
 
 ### Development Timeline
 
-- **Time Taken**: 3.5 hours (and counting)
+- **Time Taken**: 4 hours (and counting)
   (57:27)
