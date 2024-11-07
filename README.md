@@ -16,5 +16,5 @@ A MERN stack project designed for learning and experimentation with modern web d
 
 ### Development Timeline
 
-- **Time Taken**: 4 hours (and counting)
-  (57:27)
+- **Time Taken**: 4.5 hours (and counting)
+  (01:05:00)
