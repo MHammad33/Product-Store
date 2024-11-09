@@ -8,10 +8,12 @@ A MERN stack application created to explore and implement best practices in mode
 
   - Provides full-stack type safety, reducing runtime errors
   - Enhances API request validation for robust client-server interactions
+  - Boosts development efficiency by identifying type-related issues during coding
 
 - **ESLint Configuration**
 
   - Maintains code quality with custom linting rules for a consistent development style
+  - Automatically flags common errors, encouraging cleaner, more maintainable code
 
 - **UI with ShadCN**
 
