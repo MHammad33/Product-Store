@@ -1,20 +1,28 @@
 # Product-Store
 
-A MERN stack project designed for learning and experimentation with modern web development tools and best practices.
+A MERN stack application created to explore and implement best practices in modern web development.
 
-## Features
+## Key Features
 
 - **TypeScript Integration**
-  - Provides enhanced type safety across the stack
-  - Validates requests for more robust API interactions
+
+  - Provides full-stack type safety, reducing runtime errors
+  - Enhances API request validation for robust client-server interactions
+
 - **ESLint Configuration**
-  - Ensures code quality and consistency with custom linting rules
-- Used Chakra UI
-- Used Playwright for E2E testing
+
+  - Maintains code quality with custom linting rules for a consistent development style
+
+- **UI with ShadCN**
+
+  - Styled with ShadCN components, ensuring a responsive, cohesive interface
+
+- **End-to-End Testing**
+  - Validated with Playwright for reliable, comprehensive E2E testing
 
 ---
 
 ### Development Timeline
 
-- **Time Taken**: 4.5 hours (and counting)
-  (01:05:00)
+- **Time Spent**: 4.5 hours (and counting)
+  - Last Updated: 01:05:00

@@ -16,23 +16,31 @@ test.describe("Navbar E2E Tests", () => {
     await expect(page.getByText("Product 3")).toBeVisible();
   });
 
-  test("mobile navigation works correctly", async ({ page }) => {
+  test("Mobile menu opens and navigates correctly", async ({ page }) => {
     // Set viewport to mobile size
     await page.setViewportSize({ width: 375, height: 667 });
 
-    await page.getByRole("button", { name: /menu/i }).click();
-    await expect(page.getByText("Home")).toBeVisible();
-    await expect(page.getByText("Products")).toBeVisible();
-    await expect(page.getByText("About")).toBeVisible();
-    await expect(page.getByText("Contact")).toBeVisible();
+    await page.locator('[data-testid="menu-button"]').click();
+    await expect(page.locator('[data-testid="sheet-content"]')).toBeVisible();
+
+    await page.locator('[data-testid="home-button"]').click();
+    await expect(page).toHaveURL("/home");
+
+    await page.locator('[data-testid="products-button"]').click();
+    await expect(page).toHaveURL("/products");
+
+    await page.locator('[data-testid="about-button"]').click();
+    await expect(page).toHaveURL("/about");
+
+    await page.locator('[data-testid="contact-button"]').click();
+    await expect(page).toHaveURL("/contact");
   });
 
   test("search functionality", async ({ page }) => {
-    await page.getByPlaceholder("Search...").fill("test search");
-    await page.keyboard.press("Enter");
-
-    await page.setViewportSize({ width: 375, height: 667 });
-    await expect(page.getByRole("button", { name: /search/i })).toBeVisible();
+    await expect(page.locator('input[type="search"]')).toBeVisible();
+    await expect(page.locator('[data-testid="search-icon"]')).toBeVisible();
+    await page.locator('[data-testid="settings-button"]').click();
+    await page.locator('[data-testid="user-button"]').click();
   });
 
   test("responsive behavior", async ({ page }) => {
