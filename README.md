@@ -22,6 +22,7 @@ A MERN stack application created to explore and implement best practices in mode
 
 - **End-to-End Testing**
   - Validated with Playwright for reliable, comprehensive E2E testing
+  - Ensures that the application works as expected across various use cases
 
 ---
 
