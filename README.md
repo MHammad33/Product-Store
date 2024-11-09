@@ -18,6 +18,7 @@ A MERN stack application created to explore and implement best practices in mode
 - **UI with ShadCN**
 
   - Styled with ShadCN components, ensuring a responsive, cohesive interface
+  - Provides a modern design aesthetic with ease of customization
 
 - **End-to-End Testing**
   - Validated with Playwright for reliable, comprehensive E2E testing
