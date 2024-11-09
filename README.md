@@ -26,6 +26,14 @@ A MERN stack application created to explore and implement best practices in mode
 
 ---
 
+### Roadmap
+
+- **Future Improvements**
+  - Implement authentication and authorization for secure user access
+  - Integrate more advanced testing strategies, such as unit and integration tests
+  - Add deployment automation and CI/CD pipeline setup for streamlined production releases
+  - Expand feature set with more complex user interactions and a product management system
+
 ### Development Timeline
 
 - **Time Spent**: 4.5 hours (and counting)
