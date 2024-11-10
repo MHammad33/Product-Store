@@ -24,6 +24,14 @@ A MERN stack application created to explore and implement best practices in mode
   - Validated with Playwright for reliable, comprehensive E2E testing
   - Ensures that the application works as expected across various use cases
 
+### Tech Stack
+
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express, TypeScript
+- **Database**: MongoDB
+- **Testing**: Playwright (E2E), Vitest (planned for unit/integration tests)
+- **Other Tools**: ESLint, Prettier, ShadCN components for UI, Git for version control
+
 ---
 
 ### Roadmap
