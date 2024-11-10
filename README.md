@@ -48,6 +48,13 @@ A MERN stack application created to explore and implement best practices in mode
 - **Create Feature Branch**: Use feature branches for changes, e.g., `git checkout -b feature/add-auth`.
 - **Pull Request**: Submit a pull request, describing the changes and referencing any related issues.
 
+### Usage
+
+1. **Clone the Repository**: `git clone https://github.com/MHammad33/Product-Store.git`
+2. **Install Dependencies**: `npm install` for both frontend and backend
+3. **Start Development Server**: Run `npm run dev` to start the application in development mode
+4. **Testing**: Run `npm run test` to execute end-to-end tests with Playwright
+
 ---
 
 ### Roadmap
