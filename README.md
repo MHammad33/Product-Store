@@ -2,6 +2,20 @@
 
 A MERN stack application created to explore and implement best practices in modern web development.
 
+---
+
+### Table of Contents
+
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Usage](#usage)
+- [Roadmap](#roadmap)
+- [Development Timeline](#development-timeline)
+
+---
+
 ### Project Overview
 
 `Product-Store` is a full-stack e-commerce application that serves as a platform for exploring modern web development practices using the MERN stack (MongoDB, Express, React, and Node.js). The application aims to offer a secure, scalable, and maintainable structure, focusing on:
