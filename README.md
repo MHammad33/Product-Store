@@ -33,8 +33,13 @@ A MERN stack application created to explore and implement best practices in mode
 - **Other Tools**: ESLint, Prettier, ShadCN components for UI, Git for version control
 
 - **Robust API Design**
+
   - Built with Express.js, enabling RESTful API design and efficient data handling
   - API follows best practices with clearly defined endpoints and consistent naming conventions
+
+- **Database Integration**
+  - MongoDB used as the primary database for handling complex data structures
+  - Mongoose ORM enables schema validation and easy interaction with the database
 
 ---
 
