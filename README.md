@@ -41,6 +41,13 @@ A MERN stack application created to explore and implement best practices in mode
   - MongoDB used as the primary database for handling complex data structures
   - Mongoose ORM enables schema validation and easy interaction with the database
 
+### Contribution Guidelines
+
+- **Fork the Repository**: Start by forking the repository to make your changes.
+- **Set Up Development Environment**: Clone your fork and run `npm install` to set up dependencies.
+- **Create Feature Branch**: Use feature branches for changes, e.g., `git checkout -b feature/add-auth`.
+- **Pull Request**: Submit a pull request, describing the changes and referencing any related issues.
+
 ---
 
 ### Roadmap
