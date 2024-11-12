@@ -92,11 +92,11 @@ To run this project, you will need to add the following environment variables to
 
 ### Roadmap
 
-- **Future Improvements**
-  - Implement authentication and authorization for secure user access
-  - Integrate more advanced testing strategies, such as unit and integration tests
-  - Add deployment automation and CI/CD pipeline setup for streamlined production releases
-  - Expand feature set with more complex user interactions and a product management system
+- **User Authentication and Authorization**: Secure login and role-based access control
+- **Shopping Cart Feature**: Enable users to add, remove, and view items in their cart
+- **Product Reviews and Ratings**: Allow users to review and rate products
+- **Admin Dashboard**: Add an admin panel for managing products, orders, and users
+- **Notifications**: Integrate real-time notifications for order updates and product availability
 
 ### Development Timeline
 
