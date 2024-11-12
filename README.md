@@ -55,7 +55,7 @@ This project provides a robust foundation for further development into a full-fe
 - **Backend**: Node.js, Express, TypeScript
 - **Database**: MongoDB
 - **Testing**: Playwright (E2E), Vitest (planned for unit/integration tests)
-- **Other Tools**: ESLint, Prettier, ShadCN components for UI, Git for version control
+- **Development Tools**: ESLint, Prettier for code quality; Git for version control; dotenv for environment variable management
 
 - **Robust API Design**
 
