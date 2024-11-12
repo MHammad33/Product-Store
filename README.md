@@ -80,6 +80,14 @@ This project provides a robust foundation for further development into a full-fe
 3. **Start Development Server**: Run `npm run dev` to start the application in development mode
 4. **Testing**: Run `npm run test` to execute end-to-end tests with Playwright
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your `.env` file:
+
+- **MONGO_URI**: MongoDB connection string (e.g., `mongodb://localhost:27017/product-store` or MongoDB Atlas URI)
+- **JWT_SECRET**: Secret key for signing JSON Web Tokens for user authentication
+- **PORT**: Port number for server (default is 5000)
+
 ---
 
 ### Roadmap
