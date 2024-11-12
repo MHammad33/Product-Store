@@ -29,6 +29,14 @@ The goal of this project is to provide a secure, scalable, and modular architect
 - **User-Centric Experience**: The app focuses on providing a seamless and intuitive shopping experience for users, from browsing products to completing a purchase.
 - **Maintainability**: The project is structured to prioritize clean, maintainable code, with a focus on scalability and ease of future enhancements.
 
+#### Use Cases:
+
+1. **Online Retailers**: Can use the template to build and scale their own online stores.
+2. **Developers**: Can learn and build upon this foundation to create custom e-commerce applications.
+3. **Students**: Ideal for those looking to understand the fundamentals of building full-stack applications using the MERN stack.
+
+The application is designed with both **end users** and **developers** in mind, making it easy to extend with additional features like advanced user authentication, payment processing, or administrative tools.
+
 ## Key Features
 
 - **TypeScript Integration**
