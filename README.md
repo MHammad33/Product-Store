@@ -22,6 +22,13 @@ A MERN stack application created to explore and implement best practices in mode
 
 The goal of this project is to provide a secure, scalable, and modular architecture that can be easily expanded with additional features, such as advanced search functionality, product recommendations, and payment gateway integration.
 
+#### Key Objectives:
+
+- **Learning Tool**: This project is designed for developers to explore and implement best practices in full-stack web development.
+- **Scalable Design**: Using the MERN stack allows the application to handle growth in terms of both users and features.
+- **User-Centric Experience**: The app focuses on providing a seamless and intuitive shopping experience for users, from browsing products to completing a purchase.
+- **Maintainability**: The project is structured to prioritize clean, maintainable code, with a focus on scalability and ease of future enhancements.
+
 ## Key Features
 
 - **TypeScript Integration**
