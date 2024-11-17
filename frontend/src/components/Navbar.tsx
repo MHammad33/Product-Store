@@ -1,15 +1,6 @@
-import { Menu, Search, Settings, User } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { Menu, Plus } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const Navbar = () => {
   return (
@@ -70,56 +61,19 @@ const Navbar = () => {
           <h1 className="text-xl font-bold">Product Store</h1>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex ml-8">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-96">
-                    <div className="grid gap-1">
-                      <NavigationMenuLink className="cursor-pointer hover:underline">
-                        Product 1
-                      </NavigationMenuLink>
-                      <NavigationMenuLink className="cursor-pointer hover:underline">
-                        Product 2
-                      </NavigationMenuLink>
-                      <NavigationMenuLink className="cursor-pointer hover:underline">
-                        Product 3
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button variant="ghost">About</Button>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button variant="ghost">Contact</Button>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Search and Actions */}
-        <div className="ml-auto flex items-center space-x-4">
-          <div className="hidden md:flex">
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-64"
-              data-testid="search-input"
-            />
-          </div>
-          <Button variant="ghost" size="icon" data-testid="search-icon">
-            <Search className="h-5 w-5 md:hidden" />
-          </Button>
-          <Button variant="ghost" size="icon" data-testid="settings-button">
-            <Settings className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon" data-testid="user-button">
-            <User className="h-5 w-5" />
+        {/* Add Product Icon */}
+        <div className="ml-auto flex items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative group p-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition-transform"
+            data-testid="create-product-button"
+            aria-label="Add Product"
+          >
+            <Plus className="h-7 w-7" />
+            <span className="absolute -bottom-8 left-1 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
+              Add Product
+            </span>
           </Button>
         </div>
       </div>
