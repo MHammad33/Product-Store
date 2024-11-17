@@ -1,15 +1,7 @@
 import { FC, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
 import { Label } from "./ui/label";
-import { Textarea } from "./ui/textarea";
 
 interface AddProductProps {}
 
@@ -17,10 +9,13 @@ const AddProduct: FC<AddProductProps> = ({}) => {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
-    description: "",
-    category: "",
+    image: "",
   });
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({
+    name: "",
+    price: "",
+    image: "",
+  });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -29,11 +24,44 @@ const AddProduct: FC<AddProductProps> = ({}) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Form Submitted", formData);
 
-    // Clear form
-    setFormData({ name: "", price: "", description: "", category: "" });
-    setError("");
+    setErrors({
+      name: "",
+      price: "",
+      image: "",
+    });
+
+    let hasError = false;
+
+    if (!formData.name) {
+      setErrors((prev) => ({ ...prev, name: "Product name is required." }));
+      hasError = true;
+    }
+
+    if (!formData.price) {
+      setErrors((prev) => ({ ...prev, price: "Price is required." }));
+      hasError = true;
+    } else if (isNaN(Number(formData.price)) || Number(formData.price) <= 0) {
+      setErrors((prev) => ({ ...prev, price: "Please enter a valid price." }));
+      hasError = true;
+    }
+
+    if (!formData.image) {
+      setErrors((prev) => ({ ...prev, image: "Image URL is required." }));
+      hasError = true;
+    } else if (!/^https?:\/\/[^\s$.?#].[^\s]*$/.test(formData.image)) {
+      setErrors((prev) => ({
+        ...prev,
+        image:
+          "Please enter a valid image URL (e.g., https://example.com/image.jpg).",
+      }));
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    console.log("Form Submitted", formData);
+    setFormData({ name: "", price: "", image: "" });
   };
 
   return (
@@ -50,74 +78,51 @@ const AddProduct: FC<AddProductProps> = ({}) => {
           <Input
             id="name"
             name="name"
-            placeholder="Enter product name"
+            placeholder="e.g. Wireless Mouse"
             value={formData.name}
-            onChange={(e) => {
-              e;
-            }}
-            className={`mt-1 ${error ? "border-red-500" : ""}`}
+            onChange={handleInputChange}
+            className={`mt-1 ${errors.name ? "border-red-500" : ""}`}
           />
-          {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+          )}
         </div>
 
         {/* Price */}
         <div>
           <Label htmlFor="price" className="block text-sm font-medium">
-            Price (in USD)
+            Price (in PKR)
           </Label>
           <Input
             id="price"
             name="price"
-            placeholder="Enter price"
+            placeholder="e.g. 1500"
             value={formData.price}
             onChange={handleInputChange}
-            className={`mt-1 ${error ? "border-red-500" : ""}`}
+            className={`mt-1 ${errors.price ? "border-red-500" : ""}`}
             type="number"
           />
-          {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+          {errors.price && (
+            <p className="text-red-500 text-xs mt-1">{errors.price}</p>
+          )}
         </div>
 
-        {/* Description */}
+        {/* Image URL */}
         <div>
-          <Label htmlFor="description" className="block text-sm font-medium">
-            Description
+          <Label htmlFor="name" className="block text-sm font-medium">
+            Image URL
           </Label>
-          <Textarea
-            id="description"
-            name="description"
-            placeholder="Enter product description"
-            value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-            className="mt-1"
+          <Input
+            id="image"
+            name="image"
+            placeholder="e.g. https://example.com/image.jpg"
+            value={formData.image}
+            onChange={handleInputChange}
+            className={`mt-1 ${errors.image ? "border-red-500" : ""}`}
           />
-        </div>
-
-        {/* Category */}
-        <div>
-          <Label htmlFor="category" className="block text-sm font-medium">
-            Category
-          </Label>
-          <Select
-            onValueChange={(value) =>
-              setFormData((prev) => ({ ...prev, category: value }))
-            }
-          >
-            <SelectTrigger
-              id="category"
-              className={`mt-1 ${error ? "border-red-500" : ""}`}
-            >
-              <SelectValue placeholder="Select a category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="electronics">Electronics</SelectItem>
-              <SelectItem value="fashion">Fashion</SelectItem>
-              <SelectItem value="home">Home</SelectItem>
-              <SelectItem value="books">Books</SelectItem>
-            </SelectContent>
-          </Select>
-          {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+          {errors.image && (
+            <p className="text-red-500 text-xs mt-1">{errors.image}</p>
+          )}
         </div>
 
         {/* Submit Button */}
