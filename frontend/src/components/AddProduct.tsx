@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useProductStore } from "@/store/product";
+import { useToast } from "@/hooks/use-toast";
 
 interface AddProductProps {}
 
@@ -19,6 +20,7 @@ const AddProduct: FC<AddProductProps> = ({}) => {
   });
 
   const { createProduct } = useProductStore();
+  const { toast } = useToast();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -69,9 +71,23 @@ const AddProduct: FC<AddProductProps> = ({}) => {
     };
 
     const { message, success } = await createProduct(productToCreate);
+
+    if (!success) {
+      toast({
+        title: "An Error Occurred",
+        description: message,
+        variant: "destructive",
+      });
+    }
+
     console.log("success", success);
     console.log("message", message);
     setFormData({ name: "", price: "", image: "" });
+    toast({
+      title: "Product Created",
+      description: message,
+      variant: "default",
+    });
   };
 
   return (
