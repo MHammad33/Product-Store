@@ -10,7 +10,7 @@ interface ApiResponse<T> {
 interface ProductStore {
   products: Product[];
   setProducts: (products: Product[]) => void;
-  create: (
+  createProduct: (
     newProduct: ProductWithoutId,
   ) => Promise<{ success: boolean; message: string }>;
 }
@@ -18,7 +18,7 @@ interface ProductStore {
 export const useProductStore = create<ProductStore>((set) => ({
   products: [],
   setProducts: (products: Product[]) => set({ products }),
-  create: async (newProduct: ProductWithoutId) => {
+  createProduct: async (newProduct: ProductWithoutId) => {
     if (!newProduct.name || !newProduct.image || !newProduct.price) {
       return {
         success: false,

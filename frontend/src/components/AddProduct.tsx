@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { useProductStore } from "@/store/product";
 
 interface AddProductProps {}
 
@@ -17,12 +18,14 @@ const AddProduct: FC<AddProductProps> = ({}) => {
     image: "",
   });
 
+  const { createProduct } = useProductStore();
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setErrors({
@@ -60,7 +63,14 @@ const AddProduct: FC<AddProductProps> = ({}) => {
 
     if (hasError) return;
 
-    console.log("Form Submitted", formData);
+    const productToCreate = {
+      ...formData,
+      price: Number(formData.price),
+    };
+
+    const { message, success } = await createProduct(productToCreate);
+    console.log("success", success);
+    console.log("message", message);
     setFormData({ name: "", price: "", image: "" });
   };
 
