@@ -1,6 +1,7 @@
 import { Menu, Plus } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -63,18 +64,20 @@ const Navbar = () => {
 
         {/* Add Product Icon */}
         <div className="ml-auto flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative group p-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition-transform"
-            data-testid="create-product-button"
-            aria-label="Add Product"
-          >
-            <Plus className="h-7 w-7" />
-            <span className="absolute -bottom-8 left-1 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
-              Add Product
-            </span>
-          </Button>
+          <Link to="add-product">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative group p-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition-transform"
+              data-testid="create-product-button"
+              aria-label="Add Product"
+            >
+              <Plus className="h-7 w-7" />
+              <span className="absolute -bottom-8 left-1 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
+                Add Product
+              </span>
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
