@@ -1,18 +1,27 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button"; // ShadCN Button
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"; // ShadCN Card
-import { AlertCircle } from "lucide-react"; // Example Icon for "No Products Found"
+} from "@/components/ui/card";
+import { AlertCircle } from "lucide-react";
+import { useProductStore } from "@/store/product";
 
 interface HomePageProps {}
 
 const HomePage: FC<HomePageProps> = ({}) => {
+  const { fetchProducts, products } = useProductStore();
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  console.log("products", products);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 p-6">
       <Card className="w-full max-w-lg shadow-lg rounded-lg border border-gray-200 bg-white">

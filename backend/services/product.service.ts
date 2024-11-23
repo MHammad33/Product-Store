@@ -1,5 +1,8 @@
 import Product from "../models/Product.model";
-import { NewProduct, Product as ProductType } from "../types";
+import {
+  ProductWithoutId as NewProduct,
+  Product as ProductType,
+} from "../types";
 
 const add = async (product: NewProduct): Promise<ProductType> => {
   const newProduct = new Product(product);
