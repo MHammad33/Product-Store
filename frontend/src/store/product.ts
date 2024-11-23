@@ -13,6 +13,7 @@ interface ProductStore {
   createProduct: (
     newProduct: ProductWithoutId,
   ) => Promise<{ success: boolean; message: string }>;
+  fetchProducts: () => void;
 }
 
 export const useProductStore = create<ProductStore>((set) => ({
@@ -56,5 +57,10 @@ export const useProductStore = create<ProductStore>((set) => ({
             : "An unexpected error occurred",
       };
     }
+  },
+  fetchProducts: async () => {
+    const response = await fetch("/api/v1/products");
+    const data = await response.json();
+    set({ products: data.data });
   },
 }));
