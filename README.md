@@ -108,7 +108,15 @@ To run this project, you will need to add the following environment variables to
 - **Admin Dashboard**: Add an admin panel for managing products, orders, and users
 - **Notifications**: Integrate real-time notifications for order updates and product availability
 
+---
+
+### Additions by Me
+
+1. TypeScript
+2. ShadCn
+3. Zustand
+
 ### Development Timeline
 
 - **Time Spent**: 6.0 hours (and counting)
-  - Last Updated: 01:19:40
+  - Last Updated: 01:36:34

@@ -5,4 +5,4 @@ export interface Product {
   image: string;
 }
 
-export type NewProduct = Omit<Product, "id">;
+export type ProductWithoutId = Omit<Product, "id">;
