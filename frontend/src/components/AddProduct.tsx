@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useProductStore } from "@/store/product";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface AddProductProps {}
 
@@ -21,6 +22,7 @@ const AddProduct: FC<AddProductProps> = ({}) => {
 
   const { createProduct } = useProductStore();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -88,6 +90,7 @@ const AddProduct: FC<AddProductProps> = ({}) => {
       description: message,
       variant: "default",
     });
+    navigate("/");
   };
 
   return (

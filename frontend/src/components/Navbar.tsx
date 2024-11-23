@@ -64,7 +64,7 @@ const Navbar = () => {
 
         {/* Add Product Icon */}
         <div className="ml-auto flex items-center">
-          <Link to="add-product">
+          <Link to="/products/create">
             <Button
               variant="ghost"
               size="icon"

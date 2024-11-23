@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 import { useProductStore } from "@/store/product";
 import ProductCard from "@/components/ProductCard";
+import { Link } from "react-router-dom";
 
 interface HomePageProps {}
 
@@ -23,12 +24,14 @@ const HomePage: FC<HomePageProps> = () => {
           </CardTitle>
         </CardHeader>
 
-        <Button
-          variant="default"
-          className="absolute top-4 right-4 px-6 py-1 text-lg font-semibold rounded-md bg-blue-600 text-white hover:bg-blue-700 md:inline-block sm:hidden"
-        >
-          Create New Product
-        </Button>
+        <Link to="/products/create">
+          <Button
+            variant="default"
+            className="absolute top-4 right-4 px-6 py-1 text-lg font-semibold rounded-md bg-blue-600 text-white hover:bg-blue-700 md:inline-block sm:hidden"
+          >
+            Create New Product
+          </Button>
+        </Link>
 
         {products.length === 0 ? (
           <CardContent className="flex flex-col items-center gap-4 py-6">
