@@ -1,4 +1,4 @@
-import { NewProduct, Product } from "./types";
+import { ProductWithoutId as NewProduct, Product } from "./types";
 
 export const toNewProductType = (product: unknown): NewProduct => {
   if (!product || typeof product !== "object") {
