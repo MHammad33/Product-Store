@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 import { useProductStore } from "@/store/product";
+import ProductCard from "@/components/ProductCard";
 
 interface HomePageProps {}
 
@@ -50,6 +51,12 @@ const HomePage: FC<HomePageProps> = ({}) => {
           </Link>
         </CardFooter>
       </Card>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-7">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };
