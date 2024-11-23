@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import AddProduct from "./components/AddProduct";
 import { Toaster } from "./components/ui/toaster";
 import HomePage from "./pages/HomePage";
+import CreateProductPage from "./pages/CreateProductPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/products/create" element={<AddProduct />} />
+        <Route path="/products/create" element={<CreateProductPage />} />
       </Routes>
       <Toaster />
     </>
