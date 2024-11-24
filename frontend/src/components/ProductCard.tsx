@@ -9,6 +9,8 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Edit, Trash } from "lucide-react";
+import { useProductStore } from "@/store/product";
+import { toast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   product: Product;
@@ -20,6 +22,35 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     event: React.SyntheticEvent<HTMLImageElement, Event>,
   ) => {
     event.currentTarget.src = placeholderImage;
+  };
+
+  const { deleteProduct } = useProductStore();
+  const handleDeleteProduct = async (productId: string) => {
+    const confirm = window.confirm(
+      "Are you sure you want to delete the project?",
+    );
+
+    if (!confirm) {
+      return;
+    }
+
+    const { success, message } = await deleteProduct(productId);
+
+    if (!success) {
+      toast({
+        title: "Error",
+        description: message,
+        variant: "destructive",
+        duration: 2000,
+      });
+    } else {
+      toast({
+        title: "Success",
+        description: message,
+        variant: "default",
+        duration: 2000,
+      });
+    }
   };
 
   return (
@@ -43,7 +74,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <Button
             variant="ghost"
             className="text-red-500 hover:text-red-700 p-1"
-            onClick={() => alert("Delete functionality coming soon!")}
+            onClick={() => handleDeleteProduct(product.id)}
           >
             <Trash size={18} />
           </Button>

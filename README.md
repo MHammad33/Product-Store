@@ -118,5 +118,5 @@ To run this project, you will need to add the following environment variables to
 
 ### Development Timeline
 
-- **Time Spent**: 6.0 hours (and counting)
-  - Last Updated: 01:36:34
+- **Time Spent**: 7.0 hours (and counting)
+  - Last Updated: 01:44:28

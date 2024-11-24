@@ -15,6 +15,8 @@ const HomePage: FC<HomePageProps> = () => {
     fetchProducts();
   }, [fetchProducts]);
 
+  console.log("products", products);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 p-6">
       <Card className="w-full max-w-4xl shadow-lg rounded-lg border border-gray-200 bg-white relative">
