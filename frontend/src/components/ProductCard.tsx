@@ -1,6 +1,7 @@
 import { Product } from "@/types";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button } from "./ui/button";
+import Modal from "./ui/modal";
 import {
   Card,
   CardDescription,
@@ -17,6 +18,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+
   const placeholderImage = "https://via.placeholder.com/300";
   const handleImageError = (
     event: React.SyntheticEvent<HTMLImageElement, Event>,
@@ -54,53 +57,102 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <Card className="max-w-sm border rounded-lg shadow hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
-      <CardHeader className="p-0 relative">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-48 object-cover rounded-t-lg"
-          onError={handleImageError} // If image fails to load, show the placeholder
-        />
-        {/* Edit and Delete icons */}
-        <div className="absolute top-2 right-2 flex space-x-0">
-          <Button
-            variant="ghost"
-            className="text-gray-500 hover:text-gray-800 p-1"
-            onClick={() => alert("Edit functionality coming soon!")}
-          >
-            <Edit size={18} />
-          </Button>
-          <Button
-            variant="ghost"
-            className="text-red-500 hover:text-red-700 p-1"
-            onClick={() => handleDeleteProduct(product.id)}
-          >
-            <Trash size={18} />
-          </Button>
+    <>
+      <Card className="max-w-sm border rounded-lg shadow hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
+        <CardHeader className="p-0 relative">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-48 object-cover rounded-t-lg"
+            onError={handleImageError} // If image fails to load, show the placeholder
+          />
+          {/* Edit and Delete icons */}
+          <div className="absolute top-2 right-2 flex space-x-0">
+            <Button
+              variant="ghost"
+              className="text-gray-500 hover:text-gray-800 p-1"
+              onClick={() => setEditModalOpen(true)}
+            >
+              <Edit size={18} />
+            </Button>
+            <Button
+              variant="ghost"
+              className="text-red-500 hover:text-red-700 p-1"
+              onClick={() => handleDeleteProduct(product.id)}
+            >
+              <Trash size={18} />
+            </Button>
+          </div>
+        </CardHeader>
+        <div className="px-4 py-3">
+          <CardTitle className="text-lg font-semibold text-gray-800 dark:text-white">
+            {product.name}
+          </CardTitle>
+          <CardDescription className="text-gray-600 dark:text-gray-400">
+            PKR {product.price.toLocaleString()}
+          </CardDescription>
         </div>
-      </CardHeader>
-      <div className="px-4 py-3">
-        <CardTitle className="text-lg font-semibold text-gray-800 dark:text-white">
-          {product.name}
-        </CardTitle>
-        <CardDescription className="text-gray-600 dark:text-gray-400">
-          PKR {product.price.toLocaleString()}
-        </CardDescription>
-      </div>
-      <CardFooter className="flex justify-between items-center p-4 border-t bg-gray-50 dark:bg-gray-900">
-        <Button
-          variant="ghost"
-          className="text-sm"
-          onClick={() => alert("View Details functionality coming soon!")}
-        >
-          View Details
-        </Button>
-        <Button className="bg-blue-600 text-white hover:bg-blue-700">
-          Buy Now
-        </Button>
-      </CardFooter>
-    </Card>
+        <CardFooter className="flex justify-between items-center p-4 border-t bg-gray-50 dark:bg-gray-900">
+          <Button
+            variant="ghost"
+            className="text-sm"
+            onClick={() => alert("View Details functionality coming soon!")}
+          >
+            View Details
+          </Button>
+          <Button className="bg-blue-600 text-white hover:bg-blue-700">
+            Buy Now
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Modal
+        isOpen={isEditModalOpen}
+        onClose={() => setEditModalOpen(false)}
+        title="Edit Product"
+      >
+        <form className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Name
+            </label>
+            <input
+              type="text"
+              defaultValue={product.name}
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Price
+            </label>
+            <input
+              type="number"
+              defaultValue={product.price}
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Image Url
+            </label>
+            <input
+              type="text"
+              defaultValue={product.image}
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
+            />
+          </div>
+          <div className="text-right">
+            <Button
+              type="submit"
+              className="bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Save
+            </Button>
+          </div>
+        </form>
+      </Modal>
+    </>
   );
 };
 
