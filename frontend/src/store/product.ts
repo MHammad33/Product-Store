@@ -17,6 +17,10 @@ interface ProductStore {
   deleteProduct: (
     productId: string,
   ) => Promise<{ success: boolean; message: string }>;
+  updateProduct: (
+    productId: string,
+    updatedProduct: Product,
+  ) => Promise<{ success: boolean; message: string }>;
 }
 
 export const useProductStore = create<ProductStore>((set) => ({
@@ -91,6 +95,8 @@ export const useProductStore = create<ProductStore>((set) => ({
     };
   },
   updateProduct: async (productId: string, updatedProduct: Product) => {
+    console.log("updatedProduct", updatedProduct);
+    console.log("updatedProduct - JSON", JSON.stringify(updatedProduct));
     const response = await fetch(`/api/v1/products/${productId}`, {
       method: "PUT",
       headers: {
@@ -109,5 +115,6 @@ export const useProductStore = create<ProductStore>((set) => ({
         product.id === productId ? data.data : product,
       ),
     }));
+    return { success: true, message: data.message };
   },
 }));

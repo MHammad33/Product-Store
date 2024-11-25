@@ -1,5 +1,5 @@
 import { Product } from "@/types";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { Button } from "./ui/button";
 import Modal from "./ui/modal";
 import {
@@ -19,6 +19,7 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [productData, setProductData] = useState<Product>(product);
 
   const placeholderImage = "https://via.placeholder.com/300";
   const handleImageError = (
@@ -27,7 +28,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     event.currentTarget.src = placeholderImage;
   };
 
-  const { deleteProduct } = useProductStore();
+  const handleModalInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setProductData({ ...productData, [name]: value });
+  };
+
+  const { deleteProduct, updateProduct } = useProductStore();
   const handleDeleteProduct = async (productId: string) => {
     const confirm = window.confirm(
       "Are you sure you want to delete the project?",
@@ -53,6 +59,29 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         variant: "default",
         duration: 2000,
       });
+    }
+  };
+  const handleEditProduct = async (productId: string) => {
+    const { success, message } = await updateProduct(productId, {
+      ...productData,
+      price: Number(productData.price),
+    });
+
+    if (!success) {
+      toast({
+        title: "Error",
+        description: message,
+        variant: "destructive",
+        duration: 2000,
+      });
+    } else {
+      toast({
+        title: "Success",
+        description: message,
+        variant: "default",
+        duration: 2000,
+      });
+      setEditModalOpen(false);
     }
   };
 
@@ -111,14 +140,16 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         onClose={() => setEditModalOpen(false)}
         title="Edit Product"
       >
-        <form className="space-y-4">
+        <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
               Name
             </label>
             <input
               type="text"
-              defaultValue={product.name}
+              name="name"
+              value={productData.name}
+              onChange={handleModalInput}
               className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
             />
           </div>
@@ -128,7 +159,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             </label>
             <input
               type="number"
-              defaultValue={product.price}
+              name="price"
+              value={productData.price}
+              onChange={handleModalInput}
               className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
             />
           </div>
@@ -138,19 +171,21 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             </label>
             <input
               type="text"
-              defaultValue={product.image}
+              name="image"
+              value={productData.image}
+              onChange={handleModalInput}
               className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 p-3 text-gray-900 dark:text-gray-100"
             />
           </div>
           <div className="text-right">
             <Button
-              type="submit"
+              onClick={() => handleEditProduct(product.id)}
               className="bg-blue-600 text-white hover:bg-blue-700"
             >
               Save
             </Button>
           </div>
-        </form>
+        </div>
       </Modal>
     </>
   );
