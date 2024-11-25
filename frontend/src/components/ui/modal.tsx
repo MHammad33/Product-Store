@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogOverlay,
   DialogTitle,
@@ -23,15 +24,13 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-gray-800 dark:text-white">
             {title}
-          </DialogTitle>
+          </DialogTitle>{" "}
+          <DialogDescription className="text-sm text-gray-600 dark:text-gray-400">
+            Update the fields below to edit the product details. Changes will be
+            saved once you click 'Save'.
+          </DialogDescription>
         </DialogHeader>
         <div>{children}</div>
-        <button
-          onClick={onClose}
-          className="mt-4 px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
-        >
-          Close
-        </button>
       </DialogContent>
     </Dialog>
   );
