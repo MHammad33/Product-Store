@@ -1,122 +1,279 @@
 # Product-Store
 
-A MERN stack application created to explore and implement best practices in modern web development.
+Product Store is a full-stack e-commerce application that allows users to browse products, and add, edit, or delete products. This project is built with modern web technologies, including React, TypeScript, and Node.js.
 
 ---
 
-### Table of Contents
+## Table of Contents
 
-- [Project Overview](#project-overview)
+- [Overview](#overview)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
-- [Contribution Guidelines](#contribution-guidelines)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
+- [Project Highlights](#project-highlights)
 - [Development Timeline](#development-timeline)
+- [How to Use](#how-to-use)
+- [Roadmap](#roadmap)
 
 ---
 
-### Project Overview
+## Overview
 
-`Product-Store` is a full-stack e-commerce application built with the MERN stack (MongoDB, Express, React, and Node.js) to demonstrate modern web development best practices. This project serves both as a learning platform for developers and as a foundation for creating scalable and maintainable e-commerce applications.
+`Product-Store` is a fully functional e-commerce application designed to demonstrate expertise in full-stack development using the **MERN stack**.
 
-The goal of this project is to provide a secure, scalable, and modular architecture that can be easily expanded with additional features, such as advanced search functionality, product recommendations, and payment gateway integration.
+This project emphasizes clean architecture, modularity, scalability, and modern best practices, making it a versatile solution for real-world e-commerce platforms. It serves as a foundation for scalable, maintainable applications while reflecting my technical proficiency and attention to detail.
 
-#### Key Objectives:
+### **Objective**
 
-- **Learning Tool**: This project is designed for developers to explore and implement best practices in full-stack web development.
-- **Scalable Design**: Using the MERN stack allows the application to handle growth in terms of both users and features.
-- **User-Centric Experience**: The app focuses on providing a seamless and intuitive shopping experience for users, from browsing products to completing a purchase.
-- **Maintainability**: The project is structured to prioritize clean, maintainable code, with a focus on scalability and ease of future enhancements.
+To create a **secure**, **scalable**, and **developer-friendly** e-commerce platform, showcasing the following:
 
-#### Use Cases:
+1. Modern technologies like **TypeScript**, **ShadCN**, and **Zustand**.
+2. A focus on **code quality**, using tools like **ESLint** and **Prettier**.
+3. **End-to-end testing** with **Playwright** to ensure robust functionality.
+4. A seamless user experience through a **responsive UI** and efficient API design.
 
-1. **Online Retailers**: Can use the template to build and scale their own online stores.
-2. **Developers**: Can learn and build upon this foundation to create custom e-commerce applications.
-3. **Students**: Ideal for those looking to understand the fundamentals of building full-stack applications using the MERN stack.
+### Folder Structure
 
-The application is designed with both **end users** and **developers** in mind, making it easy to extend with additional features like advanced user authentication, payment processing, or administrative tools.
+The project consists of two main directories:
+
+- **frontend**: Contains all the React and TypeScript code for the client-side.
+- **backend**: Contains the Node.js, Express, and database-related code for the server-side.
+
+### Available Scripts
+
+- **In the root directory:**
+
+  - `npm run dev`: Starts both the backend server and the frontend development server.
+  - `npm run test`: Run Playwright end-to-end tests.
+
+- **In the frontend directory:**
+  - `npm start`: Starts the React development server.
+  - `npm run build`: Builds the React app for production.
+
+---
 
 ## Key Features
 
+### Core Functionality
+
+- **CRUD Operations for Products**  
+  Users can create, update, and delete products efficiently.  
+  _(Implemented via RESTful APIs with TypeScript integration)._
+
+- **UI Excellence with ShadCN**
+
+  - Responsive, modern design.
+  - Highly customizable and scalable component structure.
+
 - **TypeScript Integration**
 
-  - Provides full-stack type safety, reducing runtime errors
-  - Enhances API request validation for robust client-server interactions
-  - Boosts development efficiency by identifying type-related issues during coding
+  - Full-stack type safety ensures reliability.
+  - Detects issues during development, reducing runtime errors.
 
-- **ESLint Configuration**
-
-  - Maintains code quality with custom linting rules for a consistent development style
-  - Automatically flags common errors, encouraging cleaner, more maintainable code
-
-- **UI with ShadCN**
-
-  - Styled with ShadCN components, ensuring a responsive, cohesive interface
-  - Provides a modern design aesthetic with ease of customization
-
-- **End-to-End Testing**
-  - Validated with Playwright for reliable, comprehensive E2E testing
-  - Ensures that the application works as expected across various use cases
-
-### Tech Stack
-
-- **Frontend**: React, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Express, TypeScript
-- **Database**: MongoDB
-- **Testing**: Playwright (E2E), Vitest (planned for unit/integration tests)
-- **Development Tools**: ESLint, Prettier for code quality; Git for version control; dotenv for environment variable management
-
-- **Robust API Design**
-
-  - Built with Express.js, enabling RESTful API design and efficient data handling
-  - API follows best practices with clearly defined endpoints and consistent naming conventions
-
-- **Database Integration**
-  - MongoDB used as the primary database for handling complex data structures
-  - Mongoose ORM enables schema validation and easy interaction with the database
-
-### Contribution Guidelines
-
-- **Fork the Repository**: Start by forking the repository to make your changes.
-- **Set Up Development Environment**: Clone your fork and run `npm install` to set up dependencies.
-- **Create Feature Branch**: Use feature branches for changes, e.g., `git checkout -b feature/add-auth`.
-- **Pull Request**: Submit a pull request, describing the changes and referencing any related issues.
-
-### Usage
-
-1. **Clone the Repository**: `git clone https://github.com/MHammad33/Product-Store.git`
-2. **Install Dependencies**: `npm install` for both frontend and backend
-3. **Start Development Server**: Run `npm run dev` to start the application in development mode
-4. **Testing**: Run `npm run test` to execute end-to-end tests with Playwright
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your `.env` file:
-
-- **MONGO_URI**: MongoDB connection string (e.g., `mongodb://localhost:27017/product-store` or MongoDB Atlas URI)
-- **JWT_SECRET**: Secret key for signing JSON Web Tokens for user authentication
-- **PORT**: Port number for server (default is 5000)
+- **State Management with Zustand**  
+  Simplifies global state management for predictable and scalable app behavior.
 
 ---
 
-### Roadmap
+### Quality Assurance
 
-- **User Authentication and Authorization**: Secure login and role-based access control
-- **Shopping Cart Feature**: Enable users to add, remove, and view items in their cart
-- **Product Reviews and Ratings**: Allow users to review and rate products
-- **Admin Dashboard**: Add an admin panel for managing products, orders, and users
-- **Notifications**: Integrate real-time notifications for order updates and product availability
+- **End-to-End Testing with Playwright**  
+  Simulates real-world scenarios to validate core functionalities.
+- **Custom ESLint Configuration**  
+  Ensures consistent code style and detects common errors during development.
 
 ---
 
-### Additions by Me
+## Tech Stack
 
-1. TypeScript
-2. ShadCn
-3. Zustand
+### **Frontend**
 
-### Development Timeline
+- **React (with TypeScript)**: Modern, scalable UI development.
+- **Zustand**: Lightweight state management.
+- **ShadCN**: Prebuilt UI components with elegant, responsive design.
+- **Tailwind CSS**: Rapid and consistent styling.
 
-- **Time Spent**: 9.0 hours (and counting)
-  - Last Updated: 01:44:28
+### **Backend**
+
+- **Node.js & Express**: High-performance, lightweight server.
+- **TypeScript**: Strongly typed backend development.
+- **Mongoose**: Simplifies MongoDB interaction.
+
+### **Database**
+
+- **MongoDB**: Document-based NoSQL database, ideal for e-commerce data structures.
+
+### **Testing**
+
+- **Playwright**: Comprehensive E2E testing for user workflows.
+- **Vitest**: Planned integration for unit and integration testing.
+
+---
+
+## Project Highlights
+
+1. **TypeScript First Approach**
+
+   - Provides type safety across the stack.
+   - Makes APIs robust and easy to extend.
+
+2. **Focus on Scalability**
+
+   - Modular structure to accommodate new features like payments and analytics.
+   - Optimized for high performance with clean API design and state management.
+
+3. **UI/UX Excellence**
+
+   - Built with ShadCN for modern and responsive user interfaces.
+   - Tailored for seamless user experiences.
+
+4. **Code Quality**
+   - Integrated ESLint and Prettier for linting and formatting.
+   - Consistent, maintainable codebase.
+
+---
+
+## Development Timeline
+
+- **Total Time Spent**: **10 hours** (and counting)
+- **Current Functionalities**:
+  - Product CRUD operations.
+  - Create Product Page and Home Page (Frontend).  
+    _(Fetch API + Zustand for state management)_
+  - Backend APIs (TypeScript-enabled).
+
+---
+
+## How to Use
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/MHammad33/Product-Store.git
+```
+
+### 2. Installation and Setup
+
+- **Install Backend Dependencies**
+  Navigate to the project root directory and install backend dependencies:
+
+  ```bash
+    npm install
+  ```
+
+- **Install Frontend Dependencies**
+  Navigate to the frontend directory and install frontend dependencies:
+  ```bash
+    cd frontend
+    npm install
+  ```
+
+### 3. Environment Variables
+
+Create a `.env` file in the backend root directory with the following configuration:
+
+```plaintext
+MONGO_URI=<Your MongoDB Connection String>
+JWT_SECRET=<Your JWT Secret Key>
+PORT=5000
+```
+
+### 4. Run the Development Server
+
+- **Start Backend Server**  
+  From the project root directory, start the backend server:
+
+  ```bash
+  npm run dev
+  ```
+
+- **Start Frontend Server**
+  Navigate to the frontend directory and start the frontend server:
+
+  ```bash
+  cd frontend
+  npm run dev
+  ```
+
+### 5. Run Tests
+
+Execute tests to ensure the application works as expected:
+
+```bash
+npm run test
+```
+
+## Roadmap
+
+### Authentication
+
+- Secure login and role-based access control.
+
+### Shopping Cart
+
+- Add-to-cart, view cart, and checkout functionalities.
+
+### Product Reviews
+
+- User-generated reviews and ratings.
+
+### Admin Dashboard
+
+- Manage products, users, and orders.
+
+### Notifications
+
+- Real-time updates for order status and stock alerts.
+
+---
+
+## Why This Project Stands Out
+
+### Real-World Application
+
+- Designed to be a complete, deployable e-commerce solution.
+
+### Modern Development Practices
+
+- Leveraging tools like **TypeScript**, **Zustand**, and **ShadCN** ensures the codebase is maintainable and future-proof.
+
+### Robust Testing
+
+- End-to-end testing with **Playwright** ensures reliability in real-world scenarios.
+
+---
+
+## Acknowledgements
+
+- [TailwindCSS](https://tailwindcss.com/) for the utility-first CSS framework.
+- [ShadCN](https://github.com/shadcn) for building reusable components.
+- [Playwright](https://playwright.dev/) for end-to-end testing.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements or bug fixes.
+
+To get started, follow these steps:
+
+1. Fork the repository.
+2. Clone your fork to your local machine.
+3. Create a new branch (`git checkout -b feature-branch`).
+4. Make your changes.
+5. Commit your changes (`git commit -m 'Add new feature'`).
+6. Push to the branch (`git push origin feature-branch`).
+7. Open a pull request.
+
+---
+
+## Contact
+
+If you have any questions or feedback, feel free to reach out to me at [hammadafzal1111@gmail.com] or connect with me on [LinkedIn](https://www.linkedin.com/in/mhammad33/).
+
+---
+
+## Conclusion
+
+This project reflects my ability to create **scalable**, **user-friendly**, and **maintainable** web applications using the latest technologies. It also showcases my commitment to **code quality** and **best practices** in full-stack development.
+
+For further information, feel free to explore the repository or contact me for more details.

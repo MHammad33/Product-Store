@@ -29,7 +29,7 @@ const HomePage: FC<HomePageProps> = () => {
         <Link to="/products/create">
           <Button
             variant="default"
-            className="absolute top-4 right-4 px-6 py-1 text-lg font-semibold rounded-md bg-blue-600 text-white hover:bg-blue-700 md:inline-block sm:hidden"
+            className="hidden md:absolute text-sm top-4 right-4 px-2 py-1 font-semibold rounded-md bg-blue-600 text-white hover:bg-blue-700 md:inline-block sm:hidden"
           >
             Create New Product
           </Button>
