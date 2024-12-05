@@ -19,6 +19,7 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isConfirmModalOpen, setConfirmModalOpen] = useState(false);
   const [productData, setProductData] = useState<Product>(product);
 
   const placeholderImage = "https://via.placeholder.com/300";
@@ -35,13 +36,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   const { deleteProduct, updateProduct } = useProductStore();
   const handleDeleteProduct = async (productId: string) => {
-    const confirm = window.confirm(
-      "Are you sure you want to delete the project?",
-    );
-
-    if (!confirm) {
-      return;
-    }
+    if (!productId) return;
+    setConfirmModalOpen(true);
 
     const { success, message } = await deleteProduct(productId);
 
@@ -60,7 +56,10 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         duration: 2000,
       });
     }
+
+    setConfirmModalOpen(false);
   };
+
   const handleEditProduct = async (productId: string) => {
     const { success, message } = await updateProduct(productId, {
       ...productData,
@@ -93,9 +92,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             src={product.image}
             alt={product.name}
             className="w-full h-48 object-cover rounded-t-lg"
-            onError={handleImageError} // If image fails to load, show the placeholder
+            onError={handleImageError}
           />
-          {/* Edit and Delete icons */}
+
           <div className="absolute top-2 right-2 flex space-x-0">
             <Button
               variant="ghost"
@@ -107,7 +106,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             <Button
               variant="ghost"
               className="text-red-500 hover:text-red-700 p-1"
-              onClick={() => handleDeleteProduct(product.id)}
+              onClick={() => setConfirmModalOpen(true)}
             >
               <Trash size={18} />
             </Button>
@@ -183,6 +182,30 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
               className="bg-blue-600 text-white hover:bg-blue-700"
             >
               Save
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={isConfirmModalOpen}
+        onClose={() => setConfirmModalOpen(false)}
+        title="Confirm Deletion"
+        option="delete"
+      >
+        <div className="space-y-4">
+          <div className="flex justify-end space-x-2">
+            <Button
+              variant="outline"
+              onClick={() => setConfirmModalOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              className="bg-red-600 text-white hover:bg-red-700"
+              onClick={() => handleDeleteProduct(product.id)}
+            >
+              Delete
             </Button>
           </div>
         </div>

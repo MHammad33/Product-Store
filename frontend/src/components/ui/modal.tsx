@@ -14,9 +14,16 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  option?: string;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  option,
+}) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50 z-50" />
@@ -26,8 +33,9 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             {title}
           </DialogTitle>{" "}
           <DialogDescription className="text-sm text-gray-600 dark:text-gray-400">
-            Update the fields below to edit the product details. Changes will be
-            saved once you click 'Save'.
+            {option === "delete"
+              ? "Are you sure you want to delete this product? This action cannot be undone."
+              : "Update the fields below to edit the product details. Changes will be saved once you click 'Save'."}
           </DialogDescription>
         </DialogHeader>
         <div>{children}</div>
