@@ -7,7 +7,6 @@ const Navbar = () => {
   return (
     <nav className="border-b">
       <div className="flex h-16 items-center px-4">
-        {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
             <Button
@@ -59,10 +58,11 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="ml-4 md:ml-0">
-          <h1 className="text-xl font-bold">Product Store</h1>
+          <Link to="/">
+            <h1 className="text-xl font-bold">Product Store</h1>
+          </Link>
         </div>
 
-        {/* Add Product Icon */}
         <div className="ml-auto flex items-center">
           <Link to="/products/create">
             <Button
