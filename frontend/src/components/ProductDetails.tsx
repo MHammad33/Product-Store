@@ -14,6 +14,25 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product }) => {
     event.currentTarget.src = placeholderImage;
   };
 
+  if (!product) {
+    return (
+      <div className="container mx-auto px-4 py-10">
+        <div className="text-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md">
+          <h2 className="text-2xl font-bold mb-2">Product Not Found</h2>
+          <p className="text-gray-700">
+            Sorry, the product you're looking for is not available.
+          </p>
+          <Button
+            onClick={() => (window.location.href = "/")}
+            className="mt-4 bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-lg"
+          >
+            Back to Products
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-lg rounded-lg p-8">
