@@ -12,6 +12,7 @@ import {
 import { Edit, Trash } from "lucide-react";
 import { useProductStore } from "@/store/product";
 import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isConfirmModalOpen, setConfirmModalOpen] = useState(false);
   const [productData, setProductData] = useState<Product>(product);
+  const navigate = useNavigate();
 
   const placeholderImage = "https://via.placeholder.com/300";
   const handleImageError = (
@@ -84,6 +86,10 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     }
   };
 
+  const handleViewDetails = (productId: string) => {
+    navigate(`/products/${productId}`);
+  };
+
   return (
     <>
       <Card className="max-w-sm border rounded-lg shadow hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
@@ -124,7 +130,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <Button
             variant="ghost"
             className="text-sm"
-            onClick={() => alert("View Details functionality coming soon!")}
+            onClick={() => handleViewDetails(product.id)}
           >
             View Details
           </Button>
