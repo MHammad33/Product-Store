@@ -1,12 +1,16 @@
-import { Product } from "@/types";
 import { FC } from "react";
 import { Button } from "./ui/button";
+import { useNavigate, useParams } from "react-router-dom";
+import { useProductStore } from "@/store/product";
 
-interface ProductDetailsProps {
-  product?: Product;
-}
+interface ProductDetailsProps {}
 
-const ProductDetails: FC<ProductDetailsProps> = ({ product }) => {
+const ProductDetails: FC<ProductDetailsProps> = () => {
+  const navigate = useNavigate();
+  const { id: productId } = useParams<{ id: string }>();
+  const { products } = useProductStore();
+  const product = products.find((product) => product.id === productId);
+
   const placeholderImage = "https://via.placeholder.com/300";
   const handleImageError = (
     event: React.SyntheticEvent<HTMLImageElement, Event>,
@@ -34,7 +38,30 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-4">
+      <div className="mb-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Back
+        </button>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-lg rounded-lg p-8">
         <div className="flex justify-center items-center">
           <img
