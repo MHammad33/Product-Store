@@ -2,11 +2,13 @@ import { Menu, Plus } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
   return (
-    <nav className="border-b">
-      <div className="flex h-16 items-center px-4">
+    <nav className="border-b bg-white shadow-sm">
+      <div className="container mx-auto flex h-16 items-center px-4 sm:px-6 lg:px-8">
+        {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
             <Button
@@ -15,55 +17,55 @@ const Navbar = () => {
               className="md:hidden"
               data-testid="menu-button"
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="h-6 w-6 text-gray-700" />
             </Button>
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-64"
+            className="w-64 bg-gray-50 shadow-lg"
             data-testid="sheet-content"
           >
-            <div className="flex flex-col space-y-4 mt-8">
-              <Button
-                variant="ghost"
-                className="justify-start"
-                data-testid="home-button"
+            <nav className="flex flex-col space-y-4 mt-8">
+              <Link
+                to="/"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
               >
                 Home
-              </Button>
-              <Button
-                variant="ghost"
-                className="justify-start"
-                data-testid="products-button"
+              </Link>
+              <Link
+                to="/products"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
               >
                 Products
-              </Button>
-              <Button
-                variant="ghost"
-                className="justify-start"
-                data-testid="about-button"
+              </Link>
+              <Link
+                to="/about"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
               >
                 About
-              </Button>
-              <Button
-                variant="ghost"
-                className="justify-start"
-                data-testid="contact-button"
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
               >
                 Contact
-              </Button>
-            </div>
+              </Link>
+            </nav>
           </SheetContent>
         </Sheet>
 
         {/* Logo */}
         <div className="ml-4 md:ml-0">
-          <Link to="/">
-            <h1 className="text-xl font-bold">Product Store</h1>
+          <Link
+            to="/"
+            className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+          >
+            Product Store
           </Link>
         </div>
 
-        <div className="ml-auto flex items-center">
+        {/* Actions */}
+        <div className="ml-auto flex items-center space-x-4">
           <Link to="/products/create">
             <Button
               variant="ghost"
@@ -72,12 +74,13 @@ const Navbar = () => {
               data-testid="create-product-button"
               aria-label="Add Product"
             >
-              <Plus className="h-7 w-7" />
-              <span className="absolute -bottom-8 left-1 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
+              <Plus className="h-6 w-6" />
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
                 Add Product
               </span>
             </Button>
           </Link>
+          <ModeToggle />
         </div>
       </div>
     </nav>

@@ -4,10 +4,11 @@ import { Toaster } from "./components/ui/toaster";
 import HomePage from "./pages/HomePage";
 import CreateProductPage from "./pages/CreateProductPage";
 import ProductDetails from "./components/ProductDetails";
+import ThemeProvider from "./components/theme-provider";
 
 function App() {
   return (
-    <>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -21,7 +22,7 @@ function App() {
           &copy; {new Date().getFullYear()} Your Store. All rights reserved.
         </p>
       </footer>
-    </>
+    </ThemeProvider>
   );
 }
 
