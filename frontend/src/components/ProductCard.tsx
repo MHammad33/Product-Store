@@ -92,7 +92,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   return (
     <>
-      <Card className="max-w-sm border rounded-lg shadow hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
+      <Card className="max-w-sm border rounded-lg shadow hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <CardHeader className="p-0 relative">
           <img
             src={product.image}
@@ -104,14 +104,14 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <div className="absolute top-2 right-2 flex space-x-0">
             <Button
               variant="ghost"
-              className="text-gray-500 hover:text-gray-800 p-1"
+              className="text-gray-500 dark:text-gray-300 p-1 rounded border border-transparent hover:border-gray-800 dark:hover:border-white hover:shadow-md"
               onClick={() => setEditModalOpen(true)}
             >
               <Edit size={18} />
             </Button>
             <Button
               variant="ghost"
-              className="text-red-500 hover:text-red-700 p-1"
+              className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-600 p-1"
               onClick={() => setConfirmModalOpen(true)}
             >
               <Trash size={18} />
@@ -126,15 +126,15 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             PKR {product.price.toLocaleString()}
           </CardDescription>
         </div>
-        <CardFooter className="flex justify-between items-center p-4 border-t bg-gray-50 dark:bg-gray-900">
+        <CardFooter className="flex justify-between items-center p-4 border-t bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700">
           <Button
             variant="ghost"
-            className="text-sm"
+            className="text-sm text-gray-800 dark:text-gray-300"
             onClick={() => handleViewDetails(product.id)}
           >
             View Details
           </Button>
-          <Button className="bg-blue-600 text-white hover:bg-blue-700">
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
             Buy Now
           </Button>
         </CardFooter>
@@ -204,11 +204,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             <Button
               variant="outline"
               onClick={() => setConfirmModalOpen(false)}
+              className="text-gray-800 dark:text-gray-300"
             >
               Cancel
             </Button>
             <Button
-              className="bg-red-600 text-white hover:bg-red-700"
+              className="bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
               onClick={() => handleDeleteProduct(product.id)}
             >
               Delete
