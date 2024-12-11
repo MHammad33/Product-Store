@@ -94,11 +94,13 @@ const AddProduct: FC<AddProductProps> = ({}) => {
   };
 
   return (
-    <div className="max-w-2xl w-full mx-auto mt-6 p-8 border rounded-lg shadow-md bg-white dark:bg-gray-900">
+    <div className="max-w-2xl w-full mx-auto mt-6 p-8 border rounded-lg shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Product Name */}
         <div>
-          <Label htmlFor="name" className="block text-sm font-medium mb-1">
+          <Label
+            htmlFor="name"
+            className="block text-sm font-medium mb-1 dark:text-white"
+          >
             Product Name
           </Label>
           <Input
@@ -107,16 +109,18 @@ const AddProduct: FC<AddProductProps> = ({}) => {
             placeholder="e.g. Wireless Mouse"
             value={formData.name}
             onChange={handleInputChange}
-            className={`mt-1 w-full ${errors.name ? "border-red-500" : ""}`}
+            className={`mt-1 w-full ${errors.name ? "border-red-500" : "border-gray-300"} dark:border-gray-600 dark:bg-gray-900 dark:text-white`}
           />
           {errors.name && (
             <p className="text-red-500 text-xs mt-1">{errors.name}</p>
           )}
         </div>
 
-        {/* Price */}
         <div>
-          <Label htmlFor="price" className="block text-sm font-medium mb-1">
+          <Label
+            htmlFor="price"
+            className="block text-sm font-medium mb-1 dark:text-white"
+          >
             Price (in PKR)
           </Label>
           <Input
@@ -125,7 +129,7 @@ const AddProduct: FC<AddProductProps> = ({}) => {
             placeholder="e.g. 1500"
             value={formData.price}
             onChange={handleInputChange}
-            className={`mt-1 w-full ${errors.price ? "border-red-500" : ""}`}
+            className={`mt-1 w-full ${errors.price ? "border-red-500" : "border-gray-300"} dark:border-gray-600 dark:bg-gray-900 dark:text-white`}
             type="number"
           />
           {errors.price && (
@@ -133,9 +137,11 @@ const AddProduct: FC<AddProductProps> = ({}) => {
           )}
         </div>
 
-        {/* Image URL */}
         <div>
-          <Label htmlFor="image" className="block text-sm font-medium mb-1">
+          <Label
+            htmlFor="image"
+            className="block text-sm font-medium mb-1 dark:text-white"
+          >
             Image URL
           </Label>
           <Input
@@ -144,17 +150,16 @@ const AddProduct: FC<AddProductProps> = ({}) => {
             placeholder="e.g. https://example.com/image.jpg"
             value={formData.image}
             onChange={handleInputChange}
-            className={`mt-1 w-full ${errors.image ? "border-red-500" : ""}`}
+            className={`mt-1 w-full ${errors.image ? "border-red-500" : "border-gray-300"} dark:border-gray-600 dark:bg-gray-900 dark:text-white`}
           />
           {errors.image && (
             <p className="text-red-500 text-xs mt-1">{errors.image}</p>
           )}
         </div>
 
-        {/* Submit Button */}
         <Button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition"
         >
           Add Product
         </Button>

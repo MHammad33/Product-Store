@@ -6,7 +6,7 @@ import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
   return (
-    <nav className="border-b bg-white shadow-sm">
+    <nav className="border-b bg-white dark:bg-gray-900 shadow-sm">
       <div className="container mx-auto flex h-16 items-center px-4 sm:px-6 lg:px-8">
         {/* Mobile Menu */}
         <Sheet>
@@ -17,36 +17,36 @@ const Navbar = () => {
               className="md:hidden"
               data-testid="menu-button"
             >
-              <Menu className="h-6 w-6 text-gray-700" />
+              <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
             </Button>
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-64 bg-gray-50 shadow-lg"
+            className="w-64 bg-gray-50 dark:bg-gray-800 shadow-lg"
             data-testid="sheet-content"
           >
             <nav className="flex flex-col space-y-4 mt-8">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-4 py-2 text-base"
               >
                 Home
               </Link>
               <Link
                 to="/products"
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-4 py-2 text-base"
               >
                 Products
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-4 py-2 text-base"
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-blue-600 transition-colors px-4 py-2 text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-4 py-2 text-base"
               >
                 Contact
               </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
         <div className="ml-4 md:ml-0">
           <Link
             to="/"
-            className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+            className="text-2xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             Product Store
           </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
               aria-label="Add Product"
             >
               <Plus className="h-6 w-6" />
-              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-gray-800 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-gray-800 dark:bg-gray-700 text-white py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all">
                 Add Product
               </span>
             </Button>
